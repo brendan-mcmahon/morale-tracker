@@ -3,32 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <title>How are things going today?</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Prompt:wght@400;700&display=swap");
+    </style>
   </head>
-  <body>
-    <p>Just checking in to see how today went.</p>
-    <a
-      href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid=${guid}&value=1"
-      >Bad</a
+  <body
+    style="
+      font-family: 'Prompt', Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f6f6f6;
+    "
+  >
+    <div
+      style="
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 5px;
+      "
     >
-    <a
-      href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid=${guid}&value=2"
-      >Pretty Bad</a
-    >
-    <a
-      href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid=${guid}&value=3"
-      >Just Okay</a
-    >
-    <a
-      href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid=${guid}&value=4"
-      >Pretty Good</a
-    >
-    <a
-      href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid=${guid}&value=5"
-      >Great</a
-    >
-    <p>
-      Thanks for your feedback! This info could help us improve our team's
-      morale!
-    </p>
+      <p style="font-size: 18px">Just checking in to see how today went.</p>
+      <div style="margin-bottom: 20px">
+        <a
+          href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid={{guid}}&value=1"
+          style="
+            background-color: #ff5e5e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+          "
+          >Bad</a
+        >
+        <a
+          href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid={{guid}}&value=2"
+          style="
+            background-color: #ff9f5e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+          "
+          >Pretty Bad</a
+        >
+        <a
+          href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid={{guid}}&value=3"
+          style="
+            background-color: #ffe45e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+          "
+          >Just Okay</a
+        >
+        <a
+          href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid={{guid}}&value=4"
+          style="
+            background-color: #9fff5e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+          "
+          >Pretty Good</a
+        >
+        <a
+          href="https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid={{guid}}&value=5"
+          style="
+            background-color: #5eff5e;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #ffffff;
+            text-decoration: none;
+            margin-right: 10px;
+          "
+          >Great</a
+        >
+      </div>
+      <p style="font-size: 14px">
+        Thanks for your feedback! This info could help us improve our team's
+        morale!
+      </p>
+    </div>
   </body>
 </html>
+``
