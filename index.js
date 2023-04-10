@@ -36,7 +36,7 @@ const saveNewRecord = async (guid) => {
     TableName: "morale",
     Item: {
       id: guid,
-      date: new Date().toISOString().split("T")[0],
+      day: new Date().toISOString().split("T")[0],
       status: "pending",
       value: 0,
     },
