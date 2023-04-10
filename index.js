@@ -1,6 +1,7 @@
 const AWS = require("aws-sdk");
 const ses = new AWS.SES({ region: "us-east-1" });
 const dynamodb = new AWS.DynamoDB.DocumentClient();
+const { v4: uuidv4 } = require("uuid");
 
 const recipients = ["brendanjeffreymcmahon@gmail.com"];
 
