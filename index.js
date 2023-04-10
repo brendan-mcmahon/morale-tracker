@@ -90,5 +90,5 @@ const sendEmail = async (recipient, guid) => {
 
 const getHtmlContent = (guid) => {
   const template = fs.readFileSync("emailTemplate.html", "utf-8");
-  return template.replace("{{guid}}", guid);
+  return template.replace(/{{guid}}/g, guid);
 };
