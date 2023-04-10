@@ -50,6 +50,7 @@ const saveNewRecord = async (guid) => {
 };
 
 const sendEmail = async (recipient, guid) => {
+  const url = `https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production/morale?guid=${guid}&value=0`;
   const params = {
     Destination: {
       ToAddresses: [recipient],
@@ -58,7 +59,7 @@ const sendEmail = async (recipient, guid) => {
       Body: {
         Text: {
           Charset: "UTF-8",
-          Data: `Hello, this is a test email sent using AWS Lambda and Amazon SES. ${guid}`,
+          Data: `Hello, this is a test email sent using AWS Lambda and Amazon SES.\n ${url}`,
         },
       },
       Subject: {
