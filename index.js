@@ -59,7 +59,7 @@ const sendEmail = async (recipient, guid) => {
     },
     Message: {
       Body: {
-        Text: {
+        Html: {
           Charset: "UTF-8",
           Data: htmlContent,
         },
