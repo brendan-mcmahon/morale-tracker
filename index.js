@@ -50,7 +50,7 @@ const saveNewRecord = async (guid) => {
 };
 
 const sendEmail = async (recipient, guid) => {
-  const url = `https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production/morale?guid=${guid}&value=0`;
+  const url = `https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid=${guid}&value=0`;
   const params = {
     Destination: {
       ToAddresses: [recipient],
