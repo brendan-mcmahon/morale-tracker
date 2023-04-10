@@ -7,6 +7,7 @@ const recipients = ["brendanjeffreymcmahon@gmail.com"];
 
 exports.handler = async (event) => {
   recipients.forEach((recipient) => {
+    console.log("Sending email to", recipient);
     const guid = uuidv4();
 
     saveNewRecord(guid);
