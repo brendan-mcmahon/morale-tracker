@@ -2,6 +2,7 @@ const AWS = require("aws-sdk");
 const ses = new AWS.SES({ region: "us-east-1" });
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 const { v4: uuidv4 } = require("uuid");
+const fs = require("fs");
 
 const recipients = ["brendanjeffreymcmahon@gmail.com"];
 
@@ -50,7 +51,8 @@ const saveNewRecord = async (guid) => {
 };
 
 const sendEmail = async (recipient, guid) => {
-  const url = `https://ttk1ou06i5.execute-api.us-east-1.amazonaws.com/production?guid=${guid}&value=0`;
+  const htmlContent = getHtmlContent(guid);
+
   const params = {
     Destination: {
       ToAddresses: [recipient],
@@ -59,7 +61,7 @@ const sendEmail = async (recipient, guid) => {
       Body: {
         Text: {
           Charset: "UTF-8",
-          Data: `Hello, this is a test email sent using AWS Lambda and Amazon SES.\n ${url}`,
+          Data: htmlContent,
         },
       },
       Subject: {
@@ -84,4 +86,9 @@ const sendEmail = async (recipient, guid) => {
       body: JSON.stringify("Error sending email"),
     };
   }
+};
+
+const getHtmlContent = (guid) => {
+  const template = fs.readFileSync("emailTemplate.html", "utf-8");
+  return template.replace("{{guid}}", guid);
 };
