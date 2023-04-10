@@ -6,14 +6,28 @@ const { v4: uuidv4 } = require("uuid");
 const recipients = ["brendanjeffreymcmahon@gmail.com"];
 
 exports.handler = async (event) => {
-  recipients.forEach((recipient) => {
-    console.log("Sending email to", recipient);
+  const promises = recipients.map(async (recipient) => {
     const guid = uuidv4();
 
-    saveNewRecord(guid);
+    await saveNewRecord(guid);
 
-    sendEmail(recipient, guid);
+    await sendEmail(recipient, guid);
   });
+
+  try {
+    await Promise.all(promises);
+    console.log("All emails sent and records saved successfully");
+    return {
+      statusCode: 200,
+      body: JSON.stringify("All emails sent and records saved successfully"),
+    };
+  } catch (error) {
+    console.error("Error processing requests", error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify("Error processing requests"),
+    };
+  }
 };
 
 const saveNewRecord = async (guid) => {
